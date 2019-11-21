@@ -16,10 +16,8 @@ def data(date):
 def ativo(atv):
 
 	if (atv[-1]== "\n"):
-		#Mais um erro aqui: tentei alterar uma string.
-		lista_atv= list(atv)
-		lista_atv.pop()
-		atv=str(lista_atv)
+		#Não abri parenteses no pop
+		atv.pop
 
 	if (atv== "SIM"):
 		return True
@@ -29,8 +27,8 @@ def ativo(atv):
 
 #Letra C
 def listring(m_string):
-	
-	list_m_string= m_string.split(":")
+	#Não fechei aspas depois dos dois pontos
+	list_m_string= m_string.split(":)
 
 	return list_m_string
 
@@ -49,14 +47,15 @@ def main():
 	arq= open("cadastro.txt","r")
 
 	pacientes=[]
-	lista_arq= arq_list(arq)
+	#Não passei -arq- como parametro e coloquei arq.list ao invés de arq_list
+	lista_arq= arq.list
 
 	for paciente in lista_arq:
-
+		#Não coloquei underline entre as palavras de -DATA DE NASCIMENTO- e -DATA DE CADASTRO-
 		m_paciente={ "CPF": listring(paciente)[0],
 					 "NOME": listring(paciente)[1],
-					 "DATA_DE_NASCIMENTO": data(listring(paciente)[2]),
-					 "DATA_DO_CADASTRO": data(listring(paciente)[3]),
+					 "DATADENASCIMENTO": data(listring(paciente)[2]),
+					 "DATADOCADASTRO": data(listring(paciente)[3]),
 					 "ATIVO": ativo(listring(paciente)[4])
 		}
 		

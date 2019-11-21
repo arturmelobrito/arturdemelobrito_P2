@@ -20,13 +20,12 @@ def inversa(matriz):
 #Letra B
 def main():
 
-	#Aqui nos inputs eu transformei os valores em inteiro. A função que inverte a matriz recebe valores tipo float nas entradas
-	#da matriz, mas na letra B não especificava qual era pra ser o tipo de valor entrado pelo usuário, então optei por ser inteiro.
+	#Na correção, mudei as entradas do usuário para float
 
-	a= int(input("Digite o primeiro índice: "))
-	b= int(input("Digite o segundo índice: "))
-	c= int(input("Digite o terceiro índice: "))
-	d= int(input("Digite o quarto índice: "))
+	a= float(input("Digite o primeiro índice: "))
+	b= float(input("Digite o segundo índice: "))
+	c= float(input("Digite o terceiro índice: "))
+	d= float(input("Digite o quarto índice: "))
 
 	matriz=[[a,b],[c,d]]
 
@@ -46,4 +45,5 @@ def main():
 
 		print("\n") 
 
-#Como a questão não pedia a chamada da main, eu não cheguei a fazer, mas o programa roda direitinho com a chamada da main
+#Chamada da mainn
+main()

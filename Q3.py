@@ -11,35 +11,36 @@ def main():
 		TRx= float(input("Entre com a coordenada X do TopRight: "))
 		TRy= float(input("Entre com a coordenada Y do TopRight: "))
 
-		retangulo={"bottomLeft": (Blx, BLy),
+		retangulo={"bottomLeft": (BLx, BLy),
 				   "topRight": (TRx,TRy)
 		}
 
 		retangulos.append(retangulo.copy())
 
-		size_x1= retangulos[0]["topRight"](0)-retangulos[0]["bottomLeft"](0)
+	BLx1= retangulos[0]["bottomLeft"][0]
+	BLx2= retangulos[1]["bottomLeft"][0]
+	TRx1= retangulos[0]["topRight"][0]
+	TRx2= retangulos[1]["topRight"][0]
+	BLy1= retangulos[0]["bottomLeft"][1]
+	BLy2= retangulos[1]["bottomLeft"][1]
+	TRy1= retangulos[0]["topRight"][1]
+	TRy2= retangulos[1]["topRight"][1]
 
-		size_x2= retangulos[1]["topRight"](0)-retangulos[1]["bottomLeft"](0)
+	if ((TRx2>BLx1) & (TRy2>BLy1) & (TRx1>BLx2) & (TRy1>BLy2)):
 
-		BLx1= retangulos[0]["bottomLeft"](0)
-		BLx2= retangulos[1]["bottomLeft"](0)
-		TRx1= retangulos[0]["topRight"](0)
-		TRx2= retangulos[1]["topRight"](0)
+		colision= True
 
-		if ((BLx1>BLx2 & (BLx1-BLx2)> size_x2) or (BLx2>BLx1 & (BLx2-BLx1)> size_x1)):
+	else:
+		colision= False
 
-			colision= False
+	if colision:
 
-		else:
-			colision= True
+		print("Colisão detectada")
 
-		if colision:
+	else:
 
-			print("Colisão detectada")
+		print("Colisão não detectada")
 
-		else:
+#Chamada da main
+main()
 
-			print("Colisão não detectada")
-
-#O erro dessa questão está no algoritmo: eu não contemplei todos os casos da colisão ser falsa, 
-#então vão ter casos em que há colisão mas o programa não vai detectar
